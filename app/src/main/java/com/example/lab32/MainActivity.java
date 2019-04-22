@@ -10,6 +10,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -18,12 +21,14 @@ EditText editText;
 Button map;
 Button call;
 Button go;
+ImageView imageView;
+
 //Type variable
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+imageView=findViewById(R.id.imageView);
     map=findViewById(R.id.map);
 //Asign something to the variable map
 map.setOnClickListener(new View.OnClickListener() {
@@ -50,6 +55,13 @@ go.setOnClickListener(new View.OnClickListener() {
 webGo();
     }
 });
+loadImageFromUrl();
+
+
+    }
+
+    private void loadImageFromUrl() {
+        Picasso.get().load("https://www.oamk.fi/files/3115/2887/8059/Toimistokayttoon_Suomeksi-06.png").into(imageView);
 
     }
 
